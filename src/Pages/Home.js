@@ -1,11 +1,12 @@
 import React,{useEffect, useState} from 'react'
 import {IoIosArrowBack, IoIosArrowForward} from "react-icons/io"
-import Score from '../Components/Score'
+
+import Players from '../Components/Players'
+import PlayersDesc from '../Components/PlayersDesc'
 const Home = () => {
 
  
-    // Function to remove comments from the content
-   
+  
   const [players, setPlayers] = useState([])
   const [round, setRound] = useState(1)
   const [nextRound, setNextRound] = useState(2)
@@ -71,7 +72,7 @@ const Home = () => {
        <div className="flex justify-between" >
          <p className="font-medium text-sm sm:text-md">Round {round}</p>
          <div className='flex justify-between items-center space-x-3 sm:space-x-6'>
-            <span className='text-neutral text-sm sm:text-lg' onClick={movePrevRound}><IoIosArrowBack/></span>
+            <span className='text-neutral text-sm sm:text-lg cursor-grab' onClick={movePrevRound}><IoIosArrowBack/></span>
             <span className={
                 round===1? 
                 'bg-secondary w-[20px] md:w-[30px]  h-[20px] md:h-[30px] flex items-center justify-center rounded-[3px] text-sm sm:text-lg text-white cursor-grab'
@@ -100,7 +101,7 @@ const Home = () => {
                 setRound(3);
                 setNextRound(1)
             }}>3</span>
-            <span className='text-neutral text-sm sm:text-lg  font-normal' onClick={moveNextRound}><IoIosArrowForward/></span>
+            <span className='text-neutral cursor-grab text-sm sm:text-lg  font-normal' onClick={moveNextRound}><IoIosArrowForward/></span>
          </div>
        </div>
        {
@@ -112,58 +113,8 @@ const Home = () => {
         ) 
         :
         <div className='flex flex-col-reverse sm:flex-row justify-between sm:p-5 md:p-7 md:w-5/6'>
-         <div className='grid grid-cols-1 xsm:grid-cols-2 gap-6 md:w-3/4 lg:w-2/4 mt-10 sm:mt-0'>
-           {
-            players.map((item)=>{
-                
-                return(
-             <div key={item._id} className="flex flex-col rounded-[5px] ">
-               <div className="flex flex-row rounded-t-[5px] border-t-2 border-r-2 border-l-2 border-[#CFCFCF]-500">
-                    <span  className={
-                        item?.challenged?._id === item?.winner?._id ?
-                      'rounded-tl-[5px] bg-secondary700  p-2 w-1/5 flex items-center justify-center text-lg text-white'
-                :
-                   'rounded-tl-[5px] bg-neutral p-2 w-1/5 flex items-center justify-center text-lg text-white' }>
-                        <span className='ml-auto'>1</span>
-                    </span>
-                    <span className='rounded-tr-[5px] bg-white w-4/5 p-2 text-sm text-darkblack font-medium flex items-center'>      
-                         {(item?.challenged?.firstname || 'dinma') + ' ' + (item?.challenged?.lastname || 'nwa') }
-                    </span>
-                </div>
-                <div className="rounded-b-[5px] flex flex-row border-2 border-[#CFCFCF]-500">
-                    <span className={
-                        item?.challenger?._id === item?.winner?._id?
-                      'rounded-bl-[5px] bg-secondary700 p-2 w-1/5 flex items-center justify-center text-lg text-white'
-                :
-                   'rounded-br-[5px] bg-neutral p-2 w-1/5 flex items-center justify-center text-lg text-white' }>
-                      <span className='ml-auto'>2</span>
-                    </span>
-                    <span className='rounded-br-[5px] bg-white w-4/5 p-2 text-sm text-darkblack font-medium flex items-center'>{(item?.challenger?.firstname || 'dinma') + ' ' + (item?.challenger?.lastname || 'nwa') }</span>
-                </div>
-                <Score players={item}/>
-            </div>
-            
-          
-                )
-            })
-           }
-      </div>
-        <div className='space-y-4 mt-10 sm:mt-0'>
-            <div className="flex items-center">
-                <span class="rounded-full bg-warning w-2.5 h-2.5"></span>
-                <p className="ml-2 font-medium text-sm text-darkblack">Match ongoing</p>
-            </div>
-            <div className="flex items-center">
-                <span class="rounded-full bg-neutral w-2.5 h-2.5"></span>
-                <p className="ml-2 font-medium text-sm text-darkblack">loser of the match</p>
-            </div>
-            <div className="flex items-center">
-                <span class="rounded-full bg-secondary700 w-2.5 h-2.5"></span>
-                <p className="ml-2 font-medium text-sm text-darkblack">winner of the match</p>
-            </div>
-           
-        </div>
-         
+          <Players players={players}/>
+          <PlayersDesc/> 
        </div>
       }
        
