@@ -1,5 +1,6 @@
 import React,{useEffect, useState} from 'react'
 import {IoIosArrowBack, IoIosArrowForward} from "react-icons/io"
+import Score from '../Components/Score'
 const Home = () => {
 
  
@@ -61,10 +62,10 @@ const Home = () => {
         }
         setNextRound(nextRound-1)
     
-     }
+  }
 
-     
-//back 1 2 3 forward
+  //back 1 2 3 forward
+
   return (
     <div className=" bg-white rounded-[20px] m-2 sm:m-10 p-2 sm:p-5">
        <div className="flex justify-between" >
@@ -139,7 +140,9 @@ const Home = () => {
                     </span>
                     <span className='rounded-br-[5px] bg-white w-4/5 p-2 text-sm text-darkblack font-medium flex items-center'>{(item?.challenger?.firstname || 'dinma') + ' ' + (item?.challenger?.lastname || 'nwa') }</span>
                 </div>
+                <Score players={item}/>
             </div>
+            
           
                 )
             })
@@ -158,14 +161,16 @@ const Home = () => {
                 <span class="rounded-full bg-secondary700 w-2.5 h-2.5"></span>
                 <p className="ml-2 font-medium text-sm text-darkblack">winner of the match</p>
             </div>
+           
         </div>
+         
        </div>
       }
-
+       
       <div class="flex justify-center items-center py-20">
          <button class="bg-secondary text-xs xsm:text-sm font-semibold rounded-[16px] px-[44px] py-[14px] w-[422px] text-white" onClick={round === 3? ()=>setRound(1) : ()=>setRound(round +1)}>Proceed to Round {round===3? 1 : round+1 }</button>
       </div>
-
+       
     </div>
     
   )
