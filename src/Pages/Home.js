@@ -2,7 +2,7 @@ import React,{useEffect, useState} from 'react'
 import {IoIosArrowBack, IoIosArrowForward} from "react-icons/io"
 const Home = () => {
 
-    const data = [1,2,3,4]
+ 
     // Function to remove comments from the content
    
   const [players, setPlayers] = useState([])
@@ -63,9 +63,7 @@ const Home = () => {
     
      }
 
-     const handleButton = ()=>{
-
-     }
+     
 //back 1 2 3 forward
   return (
     <div className=" bg-white rounded-[20px] m-2 sm:m-10 p-2 sm:p-5">
