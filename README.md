@@ -4,7 +4,7 @@ This is a basic react player app that displays the record of individuals that pa
 This project was built as my submission to an assessment linked here [https://gist.githubusercontent.com/Auwalms/0c4acdc6374c5d7a1c63371c41846bc3/raw/7c571314cc4b2e2960a6538d38c202399f43caca/matches.js](https://gist.githubusercontent.com/Auwalms/0c4acdc6374c5d7a1c63371c41846bc3/raw/7c571314cc4b2e2960a6538d38c202399f43caca/matches.js)
 
 # Live Url
-The live app can be found here (https://players-app.netlify.app/)[https://players-app.netlify.app/]
+The live app can be found here [https://players-app.netlify.app/](https://players-app.netlify.app/)
 # Tools
 It was built using TailwindCss and React
 # Installation
